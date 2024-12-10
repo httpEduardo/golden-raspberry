@@ -1,0 +1,104 @@
+<div class="dashboard">
+  <div class="row">
+    <div class="card">
+      <h3>List years with multiple winners</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Win Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let year of yearsWithMultipleWinners">
+            <td>{{ year.year }}</td>
+            <td>{{ year.winCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Top 3 studios with winners</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Win Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let studio of topStudios">
+            <td>{{ studio.name }}</td>
+            <td>{{ studio.winCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <h3>Producers with longest and shortest interval between wins</h3>
+      <h4>Maximum</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Producer</th>
+            <th>Interval</th>
+            <th>Previous Year</th>
+            <th>Following Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producer of maxInterval">
+            <td>{{ producer.name }}</td>
+            <td>{{ producer.interval }}</td>
+            <td>{{ producer.previousYear }}</td>
+            <td>{{ producer.followingYear }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Minimum</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Producer</th>
+            <th>Interval</th>
+            <th>Previous Year</th>
+            <th>Following Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producer of minInterval">
+            <td>{{ producer.name }}</td>
+            <td>{{ producer.interval }}</td>
+            <td>{{ producer.previousYear }}</td>
+            <td>{{ producer.followingYear }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>List movie winners by year</h3>
+      <div class="search">
+        <input type="text" placeholder="Search by year">
+        <button>Search</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Year</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Mock data for now -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
