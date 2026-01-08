@@ -1,66 +1,209 @@
-# Dashboard Golden Raspberry Awards
+# Golden Raspberry Awards Dashboard
 
-Este projeto é um **dashboard** desenvolvido em **Angular** para exibir e explorar dados relacionados ao Golden Raspberry Awards. A aplicação permite que os usuários:
-- Visualizem uma lista de anos com múltiplos vencedores.
-- Consultem os estúdios com o maior número de prêmios.
-- Verifiquem os produtores com os maiores e menores intervalos entre vitórias.
-- Pesquisem filmes por ano.
+[![Angular](https://img.shields.io/badge/Angular-19.0.0-red?style=flat&logo=angular)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## **Configuração do Projeto**
+## Overview
 
-### **Pré-requisitos**
-Antes de configurar o projeto, certifique-se de que você tenha os seguintes requisitos instalados em sua máquina:
-- **Node.js** (versão 16 ou superior)
-- **Angular CLI** (versão 14 ou superior)
-- Um editor de código, como **Visual Studio Code**
+This project is a **dashboard** built with **Angular** to display and explore data related to the Golden Raspberry Awards (also known as the "Razzies"). The application provides an interactive interface for analyzing award statistics and movie data.
 
 ---
 
-### **Instalação**
+## Features
 
-1. **Clone o Repositório**  
-   Faça o clone do repositório para sua máquina local:
+The dashboard provides the following functionalities:
 
+- **📅 Years with Multiple Winners**: View a list of years that had multiple award winners
+- **🏢 Top Studios**: Display studios with the highest number of awards
+- **👥 Producer Intervals**: Show producers with the longest and shortest intervals between wins
+- **🔍 Movie Search**: Search and filter movies by year
+- **📊 Interactive Data Cards**: Explore award statistics through intuitive dashboard cards
+
+---
+
+## Prerequisites
+
+Before setting up the project, ensure you have the following installed on your machine:
+
+- **Node.js** (version 16 or higher)
+- **Angular CLI** (version 19 or higher)
+- **npm** (comes with Node.js)
+- A code editor such as **Visual Studio Code** (recommended)
+
+---
+
+## Installation
+
+Follow these steps to set up the project locally:
+
+1. **Clone the Repository**
+   
+   Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/seu-repositorio.git
+   git clone https://github.com/httpEduardo/golden-raspberry.git
+   ```
 
-2. **Acesse o Diretório do Projeto**
-Entre na pasta do projeto:
-    ```bash
-cd golden-raspberry
+2. **Navigate to Project Directory**
+   
+   Change into the project folder:
+   ```bash
+   cd golden-raspberry
+   ```
 
-3. Instale as Dependências
-Instale todas as dependências necessárias usando o npm:
-    ```bash
-    npm install
+3. **Install Dependencies**
+   
+   Install all required dependencies using npm:
+   ```bash
+   npm install
+   ```
 
-*Como Executar o Projeto
-Inicie o Servidor de Desenvolvimento
-Para executar a aplicação em modo de desenvolvimento, utilize:
+---
 
-ng serve
+## Development Server
 
-Após isso, acesse http://localhost:4200 no navegador para visualizar o dashboard.
+To run the application in development mode:
 
-2. Explore as Funcionalidades
+1. **Start the Development Server**
+   
+   Run the following command:
+   ```bash
+   ng serve
+   ```
+   
+   Or use the npm script:
+   ```bash
+   npm start
+   ```
 
-Acesse os diferentes cards disponíveis no dashboard para visualizar dados sobre anos vencedores, estúdios, produtores e filmes.
+2. **Access the Application**
+   
+   Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
+   
+   The application will automatically reload if you change any of the source files.
 
-Use o campo de busca para pesquisar filmes por ano.
+3. **Explore the Features**
+   
+   - Access the different dashboard cards to view data about winning years, studios, producers, and movies
+   - Use the search functionality to find movies by year
 
-Nota Importante
-A API originalmente utilizada, https://challenge.outsera.tech/api/movies, está fora do ar e não responde requisições nem pelo Postman nem pelo frontend. Devido a isso, foi necessário simular os dados manualmente no frontend para garantir o funcionamento do dashboard.
+---
 
-Os dados foram implementados diretamente no código para permitir a exploração das funcionalidades. A estrutura do projeto, no entanto, foi planejada para ser facilmente integrada a uma API no futuro, caso ela volte a estar disponível.
+## Build
 
-Estrutura do Projeto
-O projeto segue a estrutura modular do Angular e está organizado da seguinte forma:
+To build the project for production:
 
-src/app: Contém os componentes principais da aplicação.
-components/dashboard: Componente responsável por exibir os dados principais.
-components/movies-list: Componente para listar e buscar filmes.
-app-routing.module.ts: Gerencia as rotas da aplicação.
-app.module.ts: Configura os módulos e dependências da aplicação.
+```bash
+ng build
+```
+
+Or:
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/golden-raspberry` directory. The production build is optimized with:
+- AOT (Ahead-of-Time) compilation
+- Minification and bundling
+- Source map generation disabled
+- Output hashing for cache busting
+
+---
+
+## Testing
+
+This project uses Jasmine and Karma for unit testing.
+
+### Run Unit Tests
+
+Execute the test suite:
+
+```bash
+ng test
+```
+
+Or:
+
+```bash
+npm test
+```
+
+This will run all unit tests and display the results in your default browser.
+
+### Run Linting
+
+To check code quality and consistency:
+
+```bash
+ng lint
+```
+
+Or:
+
+```bash
+npm run lint
+```
+
+---
+
+## Project Structure
+
+The project follows Angular's modular architecture and is organized as follows:
+
+```
+golden-raspberry/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── dashboard/          # Main dashboard component
+│   │   │   └── movies-list/        # Movie listing and search component
+│   │   ├── services/
+│   │   │   └── api.service.ts      # API service (with mock data fallback)
+│   │   ├── mocks/
+│   │   │   └── mock-data.ts        # Mock data for offline mode
+│   │   ├── app-routing.module.ts   # Application routing configuration
+│   │   ├── app.module.ts           # Root module configuration
+│   │   └── app.component.ts        # Root component
+│   ├── assets/                     # Static assets
+│   └── styles.css                  # Global styles
+├── angular.json                    # Angular CLI configuration
+├── package.json                    # Project dependencies
+└── README.md                       # Project documentation
+```
+
+---
+
+## Important Note
+
+⚠️ **API Status**: The original API endpoint (`https://challenge.outsera.tech/api/movies`) is currently offline and not responding to requests. To ensure the dashboard remains functional, mock data has been implemented directly in the frontend code.
+
+The project architecture has been designed to easily integrate with the API in the future when it becomes available again. The mock data structure follows the same format as the original API responses.
+
+---
+
+## Technologies Used
+
+- **Angular 19** - Frontend framework
+- **Angular Material** - UI component library
+- **TypeScript** - Programming language
+- **RxJS** - Reactive programming library
+- **Karma & Jasmine** - Testing framework
+
+---
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
